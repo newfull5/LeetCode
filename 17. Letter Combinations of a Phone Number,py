@@ -1,0 +1,32 @@
+# Runtime: 24 ms, faster than 96.34% of Python3 online submissions for Letter Combinations of a Phone Number.
+# Memory Usage: 14.4 MB, less than 35.65% of Python3 online submissions for Letter Combinations of a Phone Number.
+
+class Solution:
+    def letterCombinations(self, digits: str) -> List[str]:
+        if not digits:
+            return []
+        diction = dict()
+
+        diction['2'] = ['a','b','c']
+        diction['3'] = ['d','e','f']
+        diction['4'] = ['g','h','i']
+        diction['5'] = ['j','k','l']
+        diction['6'] = ['m','n','o']
+        diction['7'] = ['p','q','r','s']
+        diction['8'] = ['t','u','v']
+        diction['9'] = ['w','x','y','z']
+
+        answer = []
+
+        def DFS(string, index = 0):
+            if len(string) == len(digits):
+                answer.append(string)
+                return
+
+
+            for char in diction[digits[index]]:
+                DFS(string + char, index+1)
+
+        DFS('')
+
+        return answer
