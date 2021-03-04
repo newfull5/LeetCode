@@ -1,0 +1,28 @@
+
+# Runtime: 52 ms, faster than 96.95% of Python3 online submissions for Insertion Sort List.
+# Memory Usage: 17.4 MB, less than 6.72% of Python3 online submissions for Insertion Sort List.
+
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def insertionSortList(self, head: ListNode) -> ListNode:
+        if not head:
+            return None
+        
+        arr = []
+        
+        while head is not None:
+            arr.append(head.val)
+            head = head.next
+            
+        arr.sort()
+        
+        answer = ListNode(arr.pop())
+        
+        while arr:
+            answer = ListNode(arr.pop(),answer)
+            
+        return answer
