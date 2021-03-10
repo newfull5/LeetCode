@@ -24,7 +24,7 @@ class Solution:
                             # 각각의 요소에서 현재값을 뺀 값을 모두 합하여 answer 변수에 더합니다.
                             answer += (height[left] * (i-left)) - sum(height[left:i])
                             
-                            # 오른쪽 포인터를 왼쪽으로 넘겨 받아서 위의 과정을 계속 진행합니다.
+                            # 오른쪽 포인터를 left 변수로 넘겨 주어서 위의 과정을 계속 진행합니다.
                             left = i
                             break
                 
@@ -41,7 +41,7 @@ class Solution:
         # 가장 큰 값을 찾아봅니다.
         idx = height.index(max(height))
         
-        # 정답 값으로 리턴할 answer 배열을 선언
+        # 정답 값으로 리턴할 answer 변수를 선언
         answer = 0
 
         # 가장 큰 값을 기준으로 2등분하여 위의 알고리즘을 2회 수행합니다.
