@@ -1,3 +1,4 @@
+"""
 # Runtime: 48 ms, faster than 83.81% of Python3 online submissions for Unique Email Addresses.
 # Memory Usage: 14.4 MB, less than 62.51% of Python3 online submissions for Unique Email Addresses.
 
@@ -16,3 +17,22 @@ class Solution:
             emails[i] = local + '@' + domain
 
         return len(set(emails))
+"""
+
+# Runtime: 48 ms, faster than 83.81% of Python3 online submissions for Unique Email Addresses.
+# Memory Usage: 14.5 MB, less than 33.59% of Python3 online submissions for Unique Email Addresses.
+
+class Solution:
+    def numUniqueEmails(self, emails: List[str]) -> int:
+        
+        def make(email):
+            local, domain = email.split('@')
+
+            if '+' in email:
+                local = local[:local.index('+')]
+
+            local = local.replace('.','')
+
+            return local + '@' + domain
+
+        return len(set(map(make, emails)))
