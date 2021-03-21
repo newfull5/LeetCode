@@ -1,3 +1,6 @@
+# Runtime: 312 ms, faster than 50.26% of Python3 online submissions for Partition Array Into Three Parts With Equal Sum. 
+# Memory Usage: 21.2 MB, less than 18.10% of Python3 online submissions for Partition Array Into Three Parts With Equal Sum.py
+
 class Solution:
     def canThreePartsEqualSum(self, arr: List[int]) -> bool:
         sum_ = sum(arr)
