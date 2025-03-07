@@ -1,0 +1,13 @@
+class Solution:
+    def maxDistance(self, colors: List[int]) -> int:
+        visited = []
+        answer = 0
+
+        for i in range(len(colors)):
+            for j in range(len(colors)-1, i, -1):
+                if colors[i] in visited:
+                    continue
+                if colors[i] != colors[j]:
+                    answer = max(j-i, answer)
+                    visited.append(colors[i])
+        return answer
